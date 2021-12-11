@@ -4,6 +4,10 @@ const characterSchema = mongoose.Schema({
     name: {
         type: String
     },
+    nameInJapan: {
+        type: String,
+        default: ''
+    },
     picture: {
         type: String,
         default: 'default.jpg'
