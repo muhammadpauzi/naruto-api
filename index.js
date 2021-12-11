@@ -11,21 +11,23 @@ app.use(cors());
 
 app.get('/api/characters', async (req, res) => {
     try {
-        let { skip = 0, limit = 10, q = '' } = req.params;
+        let { skip = 0, limit = 10, q = '' } = req.query;
         limit = Number(limit);
         skip = Number(skip);
+
+        console.log(skip);
 
         const filters = q ? { $text: { $search: q } } : {};
 
         const characters = await Character.find(filters)
-            .sort({ 'createdAt': 'DESC' })
+            .sort({ 'name': 'ASC' })
             .limit(limit)
             .skip(skip);
 
         return res.status(200).json({
             total: characters.length,
-            previous: skip <= 0 ? false : { skip: limit + 1, limit: limit + 10 },
-            next: characters ? { skip: limit + 1, limit: limit + 10 } : false,
+            previous: skip <= 0 ? false : { skip: skip - limit },
+            next: characters ? { skip: limit + skip } : false,
             data: characters
         });
     } catch (error) {
