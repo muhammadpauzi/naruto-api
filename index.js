@@ -6,18 +6,19 @@ const { connectToMongoDB } = require('./db');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const allowedSorts = ['ASC', "DESC"];
 
 app.use(cors());
 
 app.get('/api/characters', async (req, res) => {
-    let { skip = 0, limit = 10, q = '' } = req.query;
+    let { skip = 0, limit = 10, q = '', sort = 'ASC' } = req.query;
     limit = Number(limit);
     skip = Number(skip);
     const filters = q ? { $text: { $search: q } } : {};
 
     try {
         const characters = await Character.find(filters)
-            .sort({ 'name': 'ASC' })
+            .sort({ 'name': allowedSorts.includes(sort) ? sort.toUpperCase() : allowedSorts[0] })
             .limit(limit)
             .skip(skip)
             .select(['_id', 'name', 'picture']);
