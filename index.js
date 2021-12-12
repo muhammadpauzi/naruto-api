@@ -24,7 +24,7 @@ app.get('/api/characters', async (req, res) => {
         return res.status(200).json({
             total: characters.length,
             previous: skip <= 0 ? false : { skip: skip - limit },
-            next: characters ? { skip: limit + skip } : false,
+            next: characters.length > 0 && characters.length >= limit ? { skip: limit + skip } : false,
             data: characters
         });
     } catch (error) {
