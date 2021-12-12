@@ -19,7 +19,8 @@ app.get('/api/characters', async (req, res) => {
         const characters = await Character.find(filters)
             .sort({ 'name': 'ASC' })
             .limit(limit)
-            .skip(skip);
+            .skip(skip)
+            .select(['_id', 'name', 'picture']);
 
         return res.status(200).json({
             total: characters.length,
