@@ -33,4 +33,37 @@ Built with :
     npm start
     ```
 
+## Enpoints
+
+### Get all characters
+- Request
+    - Method : `GET`
+    - Endpoint : `/api/characters`
+    - URL Params / Query : 
+        - `q=[string]` : For full-text search (optional)
+        - `skip=[number]` : For skip/offset data (optional)
+        - `limit=[number]` : For limiting data (optional)
+
+- Response
+    - Success
+        ```json
+        {
+            "total": "number",
+            "previous":{
+                "skip": "number"
+            },
+            "next":{
+                "skip": "number"
+            },
+            "data": [
+                {
+                    "_id": "string",
+                    "name": "string",
+                    "picture": "string"
+                }
+            ]
+        }
+        ```
+
+
 Thanks...🙏
