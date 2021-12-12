@@ -1,5 +1,5 @@
-# 🐱‍👤 Naruto API
-API to display data for almost all characters in Naruto.
+# Naruto API
+🐱‍👤 API to display data for almost all characters in Naruto.
 
 Built with :
 - ExpressJS
@@ -11,7 +11,7 @@ Built with :
     ```bash
     git clone https://github.com/othneildrew/Best-README-Template.git
     ```
-    
+
 2. Install packages
     ```bash
     yarn install
