@@ -49,6 +49,7 @@ Built with :
         - `q=[string]` : For full-text search (optional)
         - `skip=[number]` : For skip/offset data (optional)
         - `limit=[number]` : For limiting data (optional)
+        - `sort=['ASC', 'DESC']` : For sorting data by the name (optional)
 
 - Response
     - Success
