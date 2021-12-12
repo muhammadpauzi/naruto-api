@@ -9,6 +9,7 @@
     "seed:db": "node seed.mongodb"
   },
   "dependencies": {
+    "apicache": "^1.6.3",
     "axios": "^0.24.0",
     "cheerio": "^1.0.0-rc.10",
     "cors": "^2.8.5",

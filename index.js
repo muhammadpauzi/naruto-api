@@ -1,16 +1,18 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const apicache = require('apicache');
 const Character = require('./models/Character');
 const { connectToMongoDB } = require('./db');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 const allowedSorts = ['ASC', "DESC"];
+const cache = apicache.middleware;
 
 app.use(cors());
 
-app.get('/api/characters', async (req, res) => {
+app.get('/api/characters', cache('2 minutes'), async (req, res) => {
     let { skip = 0, limit = 10, q = '', sort = 'ASC' } = req.query;
     limit = Number(limit);
     skip = Number(skip);
