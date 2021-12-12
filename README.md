@@ -1,38 +1,38 @@
 # Naruto API
 🐱‍👤 API to display data for almost all characters in Naruto.
 
-Built with :
+**Built with :**
 - ExpressJS
 - Mongoose
 - MongoDB
 
 ## Installation
-1. Clone the Repository
+1. **Clone the Repository**
     ```bash
     git clone https://github.com/othneildrew/Best-README-Template.git
     ```
 
-2. Install packages
+2. **Install packages**
     ```bash
     yarn install
     # or
     npm install
     ```
 
-3. Setting `.env` file
+3. **Setting `.env` file**
     ```env
     PORT = 5000
     MONGODB_URI = local | cloud
     ```
 
-4. Seed data to MongoDB
+4. **Seed data to MongoDB**<br>
     This process is relatively long depending on your internet connection.
     ```bash
     yarn seed:json
     yarn seed:db
     ```
 
-5. And run the API
+5. **And run the API**
     ```bash
     yarn start
     # or
