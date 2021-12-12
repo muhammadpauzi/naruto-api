@@ -11,22 +11,28 @@ Built with :
     ```bash
     git clone https://github.com/othneildrew/Best-README-Template.git
     ```
+    
 2. Install packages
-    - Yarn
-        ```bash
-        yarn install
-        ```
-    - NPM
-        ```bash
-        npm install
-        ```
+    ```bash
+    yarn install
+    # or
+    npm install
+    ```
 
 3. Setting `.env` file
     ```env
     PORT = 5000
     MONGODB_URI = local | cloud
     ```
-4. And run the API
+
+4. Seed data to MongoDB
+    This process is relatively long depending on your internet connection.
+    ```bash
+    yarn seed:json
+    yarn seed:db
+    ```
+
+5. And run the API
     ```bash
     yarn start
     # or
