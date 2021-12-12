@@ -10,15 +10,12 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 
 app.get('/api/characters', async (req, res) => {
+    let { skip = 0, limit = 10, q = '' } = req.query;
+    limit = Number(limit);
+    skip = Number(skip);
+    const filters = q ? { $text: { $search: q } } : {};
+
     try {
-        let { skip = 0, limit = 10, q = '' } = req.query;
-        limit = Number(limit);
-        skip = Number(skip);
-
-        console.log(skip);
-
-        const filters = q ? { $text: { $search: q } } : {};
-
         const characters = await Character.find(filters)
             .sort({ 'name': 'ASC' })
             .limit(limit)
